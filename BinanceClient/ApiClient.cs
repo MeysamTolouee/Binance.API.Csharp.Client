@@ -49,6 +49,7 @@ namespace BinanceClient
                 finalEndpoint = $"{endpoint}?{parameters}&signature={signature}";
             }
 
+            finalEndpoint = "https://api.binance.com" + finalEndpoint;
             var request = new HttpRequestMessage(Utilities.CreateHttpMethod(method.ToString()), finalEndpoint);
             var response = await _httpClient.SendAsync(request).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)

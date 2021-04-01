@@ -6,17 +6,17 @@
     public static class EndPoints
     {
         #region General Endpoints
-        public static readonly string TestConnectivity = "/api/v1/ping";
-        public static readonly string CheckServerTime = "/api/v1/time";
+        public static readonly string TestConnectivity = "/api/v3/ping";
+        public static readonly string CheckServerTime = "/api/v3/time";
         #endregion
 
         #region Market Data Endpoints
-        public static readonly string OrderBook = "/api/v1/depth";
-        public static readonly string AggregateTrades = "/api/v1/aggTrades";
-        public static readonly string Candlesticks = "/api/v1/klines";
-        public static readonly string TickerPriceChange24H = "/api/v1/ticker/24hr";
-        public static readonly string AllPrices = "/api/v1/ticker/allPrices";
-        public static readonly string OrderBookTicker = "/api/v1/ticker/allBookTickers";
+        public static readonly string OrderBook = "/api/v3/depth";
+        public static readonly string AggregateTrades = "/api/v3/aggTrades";
+        public static readonly string Candlesticks = "/api/v3/klines";
+        public static readonly string TickerPriceChange24H = "/api/v3/ticker/24hr";
+        public static readonly string AllPrices = "/api/v3/ticker/price";
+        public static readonly string OrderBookTicker = "/api/v3/ticker/bookTicker";
         public static readonly string TradingRules = "https://gist.githubusercontent.com/Ninj0r/3029b9d635f8f81f5ffab9cc9df5cc61/raw/810530a2118e5d8cdcfcc4d220349976a0acf131/tradingRules_20171022.json";
         #endregion
 
@@ -36,8 +36,8 @@
         #endregion
 
         #region User Stream Endpoints
-        public static readonly string StartUserStream = "/api/v1/userDataStream";
-        public static readonly string KeepAliveUserStream = "/api/v1/userDataStream";
+        public static readonly string StartUserStream = "/api/v3/userDataStream";
+        public static readonly string KeepAliveUserStream = "/api/v3/userDataStream";
         public static readonly string CloseUserStream = "/api/v1/userDataStream";
         #endregion
     }

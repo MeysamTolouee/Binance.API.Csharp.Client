@@ -31,8 +31,8 @@ namespace BinanceClient.Utils
         /// <returns>Timestamp in milliseconds.</returns>
         public static string GetUnixTimeStamp(this DateTime baseDateTime)
         {
-            var dtOffset = new DateTimeOffset(baseDateTime);
-            return dtOffset.ToUnixTimeMilliseconds().ToString();
+            DateTimeOffset dtOffset = new DateTimeOffset(baseDateTime);
+             return dtOffset.ToUnixTimeMilliseconds().ToString();            
         }
 
         /// <summary>
