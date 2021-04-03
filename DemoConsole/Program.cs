@@ -19,9 +19,20 @@ namespace DemoConsole
             _ApiClient = new ApiClient("8UY4Sr4IUroMRflEfOOot0QidZOANt35eXvZVEGwGfHSe3oDLWQNngRI9ikKwq6P", "zbNTpeYzd8lGlWByuzcR0Jk6whA6xbADESE2wnxx8aSGDWpFxhVic3KwMZgxiPqj");
             _BinanceClient = new BinanceClient.BinanceClient(_ApiClient, false);
 
-            long time = _BinanceClient.GetTradeList("HOTUSDT").Result.ToList<Trade>().Last<Trade>().Time;
-            DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime();
-            epoch = epoch.AddMilliseconds(time);
+            List<Balance> balances = _BinanceClient.GetAccountInfo().Result.Balances.ToList<Balance>();
+
+            Console.WriteLine("AccountInfo retreived.");
+
+            foreach (Balance balance in balances)
+            {
+                if ((balance.Free == 0 && balance.Locked == 0) || (balance.Asset == "BNB"))
+                    continue;
+
+                long time = _BinanceClient.GetTradeList(balance.Asset + "USDT").Result.ToList<Trade>().Last<Trade>().Time;
+                DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime();
+                epoch = epoch.AddMilliseconds(time);
+            }
+
 
             Console.ReadKey();
         }
